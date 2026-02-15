@@ -2,11 +2,11 @@
 
 This project deploys:
 
-- 1 Azure Resource Group\
-- 1 Virtual Network\
-- 2 Subnets (App Gateway requires its own)\
-- 1 Linux VM (Ubuntu)\
-- 1 Azure Application Gateway (Standard_v2)\
+- 1 Azure Resource Group
+- 1 Virtual Network
+- 2 Subnets (App Gateway requires its own)
+- 1 Linux VM (Ubuntu)
+- 1 Azure Application Gateway (Standard_v2)
 - Nginx installed automatically on the VM
 
 The App Gateway forwards HTTP traffic to the VM on port 80.
@@ -31,8 +31,8 @@ Linux VM (nginx)
 
 ## Prerequisites
 
--   Azure CLI\
--   Terraform \>= 1.5\
+-   Azure CLI
+-   Terraform >= 1.5
 -   Logged into Azure:
 
 ``` bash
