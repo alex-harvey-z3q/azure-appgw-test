@@ -116,7 +116,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 
-  # Optional but makes testing easy (AppGW will have something to hit on :80)
   custom_data = base64encode(<<EOF
 #!/bin/bash
 set -e
@@ -157,7 +156,6 @@ resource "azurerm_application_gateway" "appgw" {
     public_ip_address_id = azurerm_public_ip.pip_appgw.id
   }
 
-  # NOTE: For azurerm >= 3.100, use ip_addresses (list) rather than backend_address blocks.
   backend_address_pool {
     name         = "be-pool"
     ip_addresses = [azurerm_network_interface.nic_vm.private_ip_address]
@@ -187,7 +185,6 @@ resource "azurerm_application_gateway" "appgw" {
     priority                   = 100
   }
 
-  # Ensure VM (and its private IP) exists before AppGW is created
   depends_on = [azurerm_linux_virtual_machine.vm]
 }
 
